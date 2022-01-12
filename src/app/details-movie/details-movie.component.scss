@@ -1,0 +1,61 @@
+.details-movie-main{
+    background-image: url('../../assets/images/background_red.jpg');
+    width: 100vw;
+    height: 100vh;
+
+    .details-movie{
+        margin: auto;
+        width: 600px;
+        background-color: bisque;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 15px;
+
+        .details-movie-title{
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .details-movie-genre{
+            list-style: none;
+            margin-bottom: 10px;
+            padding-left: 0;
+
+            .details-movie-genre-item{
+                margin-right: 10px;
+                padding: 2px 5px;
+                border-radius: 5px;
+                background-color: #E47D52;
+            }
+        }
+
+        .details-movie-release-date{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    
+        .details-movie-overview{
+            text-align: justify;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+    
+        .details-movie-vote{
+            margin-bottom: 10px;
+
+            .details-movie-vote-average{
+                font-weight: bold;
+                padding: 13px;
+                border-radius: 50px;
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+   
+
+    
+
+}
