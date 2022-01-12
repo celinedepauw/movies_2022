@@ -1,8 +1,11 @@
-<main class="home-main" fxLayout="column" fxLayoutAlign="center center">
-    <h1 class="home-title">Bienvenue</h1>
-    <form class="home-form">
+<main class="home-main" fxLayout="column" fxLayoutAlign="start center">
+    <h1 class="home-title">Bienvenue
+        <img class="home-logo" src="../../assets/images/clap.png" alt="clap-picture"/>
+    </h1>
+    <p class="home-intro">Quel film recherchez-vous ?</p>
+    <form class="home-form" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline" class="home-search">
-            <input matInput class="home-search-input" placeholder="Titre du film recherché" />
+            <input matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="search"/>
         </mat-form-field>
     </form>
 </main>

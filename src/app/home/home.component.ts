@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  search!: FormControl;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.search = new FormControl('');
+  }
+
+  onSubmit(){
+    console.log('search = ' + this.search.value)
   }
 
 }

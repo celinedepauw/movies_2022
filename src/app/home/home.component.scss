@@ -1,12 +1,21 @@
 .home-main{
     height: 100vh;
     width: 100vw;
-    background-color: rgb(150, 207, 218);
+    background-image: url('../../assets/images/background_red.jpg');
 
     .home-title{
         text-align: center;
+        font-size: 4rem;
+
+        .home-logo{
+            width: 70px;
+        }
     }
     
+    .home-intro{
+        font-size: 1.5rem;
+    }
+
     .home-form{
     
         .mat-form-field{
