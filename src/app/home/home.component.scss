@@ -1,0 +1,22 @@
+.home-main{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(150, 207, 218);
+
+    .home-title{
+        text-align: center;
+    }
+    
+    .home-form{
+    
+        .mat-form-field{
+            width: 350px;
+            margin-top: 30px;
+
+            .home-search-input{
+                height: 50px;
+            }
+        }
+    }
+}
+
