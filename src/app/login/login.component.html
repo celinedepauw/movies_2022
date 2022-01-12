@@ -1,11 +1,15 @@
 <main class="login-main" fxLayout="column" fxLayoutAlign="center center">
     <img class="login-header-image" src="../../assets/images/pellicule.jpg" alt="bannière" />
-    <form class="login-form" fxLayout="column">
+    <form [formGroup]="loginForm" class="login-form" fxLayout="column" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
-            <input matInput class="login-input" type="text" placeholder="Login" name="login"/>
+            <input matInput class="login-input" type="text" placeholder="Login" name="login" formControlName="login"/>
+            <mat-error *ngIf="loginForm.get('login')!.hasError('required')">Veuillez saisir un login</mat-error>
+            <mat-error *ngIf="loginForm.get('login')!.hasError('pattern')">Le login saisi n'existe pas</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <input matInput class="login-input" type="password" placeholder="Mot de passe" name="password"/>
+            <input matInput class="login-input" type="password" placeholder="Mot de passe" name="password" formControlName="password"/>
+            <mat-error *ngIf="loginForm.get('password')!.hasError('required')">Veuillez saisir un mot de passe</mat-error>
+            <mat-error *ngIf="loginForm.get('password')!.hasError('pattern')">Le mot de passe n'est pas valide</mat-error>
         </mat-form-field>
         <button class="login-button" type="submit">Connexion</button>
     </form>

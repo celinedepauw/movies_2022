@@ -11,8 +11,12 @@
         width: 350px;
         margin-top: 30px;
 
-        .login-input{
-            height: 50px;
+        .mat-form-field{
+            margin-bottom: 20px;
+
+            .login-input{
+                height: 50px;
+            }
         }
 
         .login-button{
