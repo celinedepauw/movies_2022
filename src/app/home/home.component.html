@@ -3,10 +3,11 @@
         <img class="home-logo" src="../../assets/images/clap.png" alt="clap-picture"/>
     </h1>
     <p class="home-intro">Quel film recherchez-vous ?</p>
-    <form class="home-form" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline" class="home-search">
-            <input matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="search"/>
-        </mat-form-field>
-    </form>
+    <mat-form-field appearance="outline" class="home-search">
+        <input #searchInput matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" [matAutocomplete]="auto" (keyup)="search(searchInput.value)"/>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let result of movies | async" [value]="result.title">{{result.title}}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
 </main>
 

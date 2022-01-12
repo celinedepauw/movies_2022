@@ -16,16 +16,19 @@
         font-size: 1.5rem;
     }
 
-    .home-form{
-    
-        .mat-form-field{
-            width: 350px;
-            margin-top: 30px;
+    .mat-form-field{
+        width: 350px;
+        margin-top: 30px;
 
-            .home-search-input{
-                height: 50px;
-            }
+        .home-search-input{
+            height: 50px;
         }
+        
+        .home-search-input::placeholder{
+            color: black;
+        }
+
     }
+    
 }
 
