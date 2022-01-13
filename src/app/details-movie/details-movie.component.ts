@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
 
@@ -15,6 +15,7 @@ export class DetailsMovieComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: MovieService
   ) { }
 
@@ -28,6 +29,10 @@ export class DetailsMovieComponent implements OnInit {
   getDate(dateFromApi: string){
     const arrayDate = dateFromApi.split('-')
     return `${arrayDate[2]}/${arrayDate[1]}/${arrayDate[0]}`
+  }
+
+  goBackHome(){
+    this.router.navigateByUrl('/home');
   }
 
 }

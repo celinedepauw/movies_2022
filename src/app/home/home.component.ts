@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime, Observable, startWith, Subject, switchMap, filter } from 'rxjs';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
+    private router: Router
   ) {}
 
 
@@ -36,6 +38,10 @@ export class HomeComponent implements OnInit {
       console.log(resp.results)
       this.movies = resp.results
     })
+  }
+
+  goToMovie(id: number){
+    this.router.navigateByUrl(`/movie/${id}`)
   }
 }
 
