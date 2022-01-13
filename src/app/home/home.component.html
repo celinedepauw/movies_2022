@@ -4,23 +4,14 @@
     </h1>
     <p class="home-intro">Quel film recherchez-vous ?</p>
     <mat-form-field appearance="outline" class="home-search">
-        <input #searchInput matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" [matAutocomplete]="auto" (keyup)="searchMovie(searchInput.value)" />
+        <input matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" [matAutocomplete]="auto" />
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let movie of movies" [value]="movie.title">
-                {{movie.title}}
-            </mat-option>
-            <mat-option>test</mat-option>
-            <mat-option>hello</mat-option>
+            <a *ngFor="let movie of movies$ | async">
+                <mat-option (click)="goToMovie(movie.id)">{{movie.title}}</mat-option>
+            </a>
         </mat-autocomplete>
     </mat-form-field>
-
-    <div>
-        <div>Résultats de la recherche :</div>
-        <ul>
-            <li *ngFor="let movie of movies">
-                <a (click)="goToMovie(movie.id)">{{movie.title}}</a>
-            </li>
-        </ul>
-    </div>
 </main>
 
+
+      
