@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { debounceTime, Observable, Subject, switchMap } from 'rxjs';
+import { debounceTime, Observable, startWith, Subject, switchMap, filter } from 'rxjs';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
 
@@ -11,10 +11,41 @@ import { MovieService } from '../movie.service';
 })
 export class HomeComponent implements OnInit {
 
-  movies!: Observable<Movie[]>;
-  private searchWords = new Subject<string>();
+  inputSearch!: FormControl;
+
+  movies: Movie[] = [];
+  //movies!: Observable<Movie[]>;
+
+  constructor(
+    private movieService: MovieService,
+  ) {}
+
+
+  ngOnInit(): void {
+    this.inputSearch = new FormControl('');
+    /*this.inputSearch.valueChanges.subscribe(response => {
+      console.log('lettres : ', response)  
+    })*/
+  }
+
+
+  searchMovie(word: string){
+  //console.log(word)
+  this.movieService.search(word)
+    .subscribe((resp: any) => {
+      console.log(resp.results)
+      this.movies = resp.results
+    })
+  }
+}
+
+/* comme dans tour of heroes : mais ne fonctionne pas 
+export class HomeComponent implements OnInit {
 
   inputSearch!: FormControl;
+
+  movies!: Observable<Movie[]>;
+  private searchWords = new Subject<string>();
 
   constructor(
     private movieService: MovieService,
@@ -32,11 +63,6 @@ export class HomeComponent implements OnInit {
     this.searchWords.next(word);
   }
 
-  /*
-  searchMovie(word: string){
-  //console.log(word)
-  this.movieService.search(word)
-    .subscribe(movies => this.movies = movies)
- }*/
 
 }
+*/

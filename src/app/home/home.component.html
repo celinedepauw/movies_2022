@@ -3,11 +3,47 @@
         <img class="home-logo" src="../../assets/images/clap.png" alt="clap-picture"/>
     </h1>
     <p class="home-intro">Quel film recherchez-vous ?</p>
+
+    <!--
+    <form (ngSubmit)="searchMovie(searchInput.value)">
+        <mat-form-field appearance="outline" class="home-search">
+            <input #searchInput matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" />
+        </mat-form-field>
+        <button type="submit">Rechercher</button>
+    </form>
+    -->
+
+    <form (ngSubmit)="searchMovie(searchInput.value)">
+        <mat-form-field appearance="outline" class="home-search">
+            <input #searchInput matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" [matAutocomplete]="auto" (keyup)="searchMovie(searchInput.value)" />
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let movie of movies" [value]="movie.title">
+                    {{movie.title}}
+                </mat-option>
+                <mat-option>test</mat-option>
+                <mat-option>hello</mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <div>
+        <div>Résultats de la recherche :</div>
+        <ul>
+            <li *ngFor="let movie of movies">
+                <a routerLink="/movie/{{movie.id}}">{{movie.title}}</a></li>
+        </ul>
+    </div>
+   
+
+    
+    <!--
     <mat-form-field appearance="outline" class="home-search">
-        <input #searchInput matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" [matAutocomplete]="auto" (keyup)="search(searchInput.value)"/>
+        <input #searchInput matInput class="home-search-input" placeholder="Titre du film recherché" [formControl]="inputSearch" [matAutocomplete]="auto" (keyup)="searchMovie(searchInput.value)"/>
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let result of movies | async" [value]="result.title">{{result.title}}</mat-option>
+            <mat-option></mat-option>
         </mat-autocomplete>
     </mat-form-field>
+    -->
 </main>
 

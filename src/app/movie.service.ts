@@ -13,14 +13,10 @@ export class MovieService {
   ) { }
 
   
-  search(word: string): Observable<Movie[]>{
-    if(word.length >= 3){
+  search(word: string) {
       return this.http
-      .get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=841287cc6cdf6270894e2d9b9a2554e9&query=${word}`);  
-    }
-    return of([])   
+      .get(`https://api.themoviedb.org/3/search/movie?api_key=841287cc6cdf6270894e2d9b9a2554e9&query=${word}`);  
   }
-  
 
   getMovieById(id: number): Observable<Movie>{
     return this.http

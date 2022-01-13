@@ -3,6 +3,7 @@ export interface Movie{
     title: string,
     genres: Genre[],
     overview: string,
+    poster_path: string,
     releaseDate: string,
     average: number
 }
