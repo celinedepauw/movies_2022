@@ -2,11 +2,13 @@
     <div class="details-movie">
         <h2 class="details-movie-title">{{movie.title}}</h2>
         <ul class="details-movie-genre" fxLayout="row" fxLayoutAlign="center center">
-            <li class="details-movie-genre-item">Drame</li>
-            <li class="details-movie-genre-item">Amour</li>
+            <li class="details-movie-genre-item" *ngFor="let genre of movie.genres">{{genre.name}}</li>
         </ul>
-        <div class="details-movie-release-date">Date de sortie : 15/10/2015</div>
+        <div class="details-movie-release-date">Date de sortie : {{ getDate(movie.release_date)}}</div>
         <div class="details-movie-overview">{{ movie.overview }}</div>
-        <div class="details-movie-vote">Note télespectateur : <span class="details-movie-vote-average">7 / 10</span></div>
+        <div class="details-movie-vote">Note télespectateur : <span class="details-movie-vote-average">{{ (movie.vote_average).toString()}} / 10</span></div>
+        <div class="details-movie-picture">
+            <img class="details-movie-image" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="movie picture"/>
+        </div>
     </div>
 </main>

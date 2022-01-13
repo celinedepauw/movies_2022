@@ -25,4 +25,9 @@ export class DetailsMovieComponent implements OnInit {
       .subscribe(movie => this.movie = movie)
   }
 
+  getDate(dateFromApi: string){
+    const arrayDate = dateFromApi.split('-')
+    return `${arrayDate[2]}/${arrayDate[1]}/${arrayDate[0]}`
+  }
+
 }
